@@ -12,12 +12,15 @@ public class Solution76 {
 
     public void setZeroes(int[][] matrix) {
 
-        // 步骤1: 标记需要置零的行和列
-        boolean[] row = new boolean[matrix.length];
-        boolean[] col = new boolean[matrix[0].length];
+        int m = matrix.length;
+        int n = matrix[0].length;
 
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
+        // 步骤1: 标记需要置零的行和列
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
                     row[i] = col[j] = true;
                 }
@@ -25,8 +28,8 @@ public class Solution76 {
         }
 
         // 步骤2: 根据标记置零对应的行和列
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
